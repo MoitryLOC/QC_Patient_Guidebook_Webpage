@@ -7,27 +7,28 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            overflow: hidden;
             background-color: #f4f4f4;
         }
         .slideshow-container {
             position: relative;
-            max-width: 100%;
+            width: 100vw; /* Full screen width */
+            height: 100vh; /* Full screen height */
             overflow: hidden;
             background-color: #000;
         }
         .slides {
             display: flex;
             transition: transform 0.5s ease;
+            width: 100%; /* 100% width to hold all images */
+            height: 100%; /* Full height to fill the screen */
         }
         .slides img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
+            width: 100vw; /* Each image should fill the width of the screen */
+            height: 100vh; /* Each image should fill the height of the screen */
+            object-fit: contain; /* Center and scale the image */
+            flex-shrink: 0; /* Prevent images from shrinking */
         }
         .nav-button {
             position: absolute;
