@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Slideshow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slides img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <div class="slides">
+        <!-- Images will go here -->
+        <img src="image1.png" alt="Slide 1">
+        <img src="image2.png" alt="Slide 2">
+        <img src="image3.png" alt="Slide 3">
+        <!-- Add more images if needed -->
+    </div>
+    <button class="nav-button prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="nav-button next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<script>
+    let currentIndex = 0;
+
+    function moveSlide(step) {
+        const slides = document.querySelectorAll(".slides img");
+        const totalSlides = slides.length;
+        currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+        document.querySelector(".slides").style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+</script>
+
+</body>
+</html>
