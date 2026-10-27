@@ -1,127 +1,68 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Slideshow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Queensway Carleton Hospital - Patient Handbook</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            overflow: hidden;
-            background-color: #f4f4f4;
-        }
-        .slideshow-container {
-            position: relative;
-            width: 100vw; /* Full screen width */
-            height: 100vh; /* Full screen height */
-            overflow: hidden;
-            background-color: #000;
-        }
-        .slides {
+            font-family: Arial, sans-serif;
+            background: #f4f7f8;
+            color: #243746;
+            min-height: 100vh;
             display: flex;
-            transition: transform 0.5s ease;
-            width: 100%; /* 100% width to hold all images */
-            height: 100%; /* Full height to fill the screen */
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
-        .slides img {
-            width: 100vw; /* Each image should fill the width of the screen */
-            height: 100vh; /* Each image should fill the height of the screen */
-            object-fit: contain; /* Center and scale the image */
-            flex-shrink: 0; /* Prevent images from shrinking */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            text-align: center;
         }
-        .nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
+        h1 {
+            font-size: 26px;
+            line-height: 1.3;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 15px 24px;
+            background: #007f86;
             color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 100;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
         }
-        .prev {
-            left: 0;
-        }
-        .next {
-            right: 0;
-        }
-        .zoom-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 100;
+        .button:hover {
+            background: #00676d;
         }
     </style>
 </head>
 <body>
-
-<div class="slideshow-container">
-    <div class="slides">
-        <!-- Add all 32 image paths here -->
-        <img src="Slide1.PNG" alt="Slide 1">
-        <img src="Slide2.PNG" alt="Slide 2">
-        <img src="Slide3.PNG" alt="Slide 3">
-        <img src="Slide4.PNG" alt="Slide 4">
-        <img src="Slide5.PNG" alt="Slide 5">
-        <img src="Slide6.PNG" alt="Slide 6">
-        <img src="Slide7.PNG" alt="Slide 7">
-        <img src="Slide8.PNG" alt="Slide 8">
-        <img src="Slide9.PNG" alt="Slide 9">
-        <img src="Slide10.PNG" alt="Slide 10">
-        <img src="Slide11.PNG" alt="Slide 11">
-        <img src="Slide12.PNG" alt="Slide 12">
-        <img src="Slide13.PNG" alt="Slide 13">
-        <img src="Slide14.PNG" alt="Slide 14">
-        <img src="Slide15.PNG" alt="Slide 15">
-        <img src="Slide16.PNG" alt="Slide 16">
-        <img src="Slide17.PNG" alt="Slide 17">
-        <img src="Slide18.PNG" alt="Slide 18">
-        <img src="Slide19.PNG" alt="Slide 19">
-        <img src="Slide20.PNG" alt="Slide 20">
-        <img src="Slide21.PNG" alt="Slide 21">
-        <img src="Slide22.PNG" alt="Slide 22">
-        <img src="Slide23.PNG" alt="Slide 23">
-        <img src="Slide24.PNG" alt="Slide 24">
-        <img src="Slide25.PNG" alt="Slide 25">
-        <img src="Slide26.PNG" alt="Slide 26">
-        <img src="Slide27.PNG" alt="Slide 27">
-        <img src="Slide28.PNG" alt="Slide 28">
-        <img src="Slide29.PNG" alt="Slide 29">
-        <img src="Slide30.PNG" alt="Slide 30">
-        <img src="Slide31.PNG" alt="Slide 31">
-        <img src="Slide32.PNG" alt="Slide 32">
-    </div>
-    <button class="nav-button prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="nav-button next" onclick="moveSlide(1)">&#10095;</button>
-    <button class="zoom-button" onclick="zoomImage()">Zoom In/Out</button>
-</div>
-
-<script>
-    let currentIndex = 0;
-    let zoomLevel = 1;
-
-    function moveSlide(step) {
-        const slides = document.querySelectorAll(".slides img");
-        const totalSlides = slides.length;
-        currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-        document.querySelector(".slides").style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function zoomImage() {
-        const slides = document.querySelectorAll(".slides img");
-        zoomLevel = zoomLevel === 1 ? 1.5 : 1;  // Toggle zoom level between 1x and 1.5x
-        slides.forEach(slide => {
-            slide.style.transform = `scale(${zoomLevel})`;
-        });
-    }
-</script>
-
+    <main class="container">
+        <h1>Queensway Carleton Hospital</h1>
+        <h2>Patient Handbook</h2>
+        <p>Access the latest patient handbook using the link below.</p>
+        <a class="button"
+           href="./QCH-Patient%20Handbook_October%2024,%202026.pdf"
+           target="_blank"
+           rel="noopener">
+            Open Patient Handbook (PDF)
+        </a>
+    </main>
 </body>
 </html>
