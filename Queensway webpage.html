@@ -1,75 +1,51 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Slideshow</title>
+    <title>Queensway Carleton Hospital - Patient Handbook</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #f4f4f4;
+            padding: 40px 20px;
+            text-align: center;
+            background: #f4f7f8;
+            color: #243746;
         }
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            overflow: hidden;
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 35px 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
         }
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        .slides img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-        }
-        .nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
+        h1 { font-size: 26px; }
+        p { line-height: 1.6; }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 14px 24px;
+            background: #007f86;
             color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
         }
-        .prev {
-            left: 0;
-        }
-        .next {
-            right: 0;
-        }
+        a:hover { background: #00676d; }
     </style>
 </head>
 <body>
-
-<div class="slideshow-container">
-    <div class="slides">
-        <!-- Images will go here -->
-        <img src="image1.png" alt="Slide 1">
-        <img src="image2.png" alt="Slide 2">
-        <img src="image3.png" alt="Slide 3">
-        <!-- Add more images if needed -->
+    <div class="container">
+        <h1>Queensway Carleton Hospital</h1>
+        <h2>Patient Handbook</h2>
+        <p>View the latest patient handbook.</p>
+        <a href="./QCH-Patient%20Handbook_October%2024,%202026.pdf"
+           target="_blank" rel="noopener">
+            Open Patient Handbook (PDF)
+        </a>
     </div>
-    <button class="nav-button prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="nav-button next" onclick="moveSlide(1)">&#10095;</button>
-</div>
-
-<script>
-    let currentIndex = 0;
-
-    function moveSlide(step) {
-        const slides = document.querySelectorAll(".slides img");
-        const totalSlides = slides.length;
-        currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-        document.querySelector(".slides").style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-</script>
-
 </body>
 </html>
